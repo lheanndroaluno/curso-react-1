@@ -43,7 +43,7 @@ public class PessoaResource {
 	 * @param pessoa
 	 * @return
 	 */
-	@PutMapping("{codigo}")
+	@PutMapping("/{codigo}")
 	public Pessoa atualizar(@PathVariable ("codigo") Long codigo, @RequestBody Pessoa pessoa){
 		return pessoaRepository.findById(codigo).map(
 				record -> {
@@ -57,7 +57,7 @@ public class PessoaResource {
 				}).orElse(null);
 	}
 	
-	@GetMapping("{codigo}")
+	@GetMapping("/{codigo}")
 	public Pessoa buscarPeloCodigo(@PathVariable Long codigo) {
 		return pessoaRepository.findById(codigo).orElse(null);
 	}
